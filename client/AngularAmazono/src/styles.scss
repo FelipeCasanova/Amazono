@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+$main: #232f3e;
+
+.bg-main {
+  background-color: $main;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffc107;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25r
+}
