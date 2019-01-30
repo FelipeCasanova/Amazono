@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
@@ -8,11 +8,14 @@ import { DataService } from './data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   searchTerm = '';
   isCollapsed = true;
 
-  constructor(private router: Router, private data: DataService) {
+  constructor(private router: Router, public data: DataService) {
+  }
+
+  ngOnInit() {
     this.data.getProfile();
   }
 
