@@ -1,2 +1,5 @@
 .DS_Store
 client/.DS_Store
+client/AngularAmazono/node_modules
+server/.DS_Store
+server/node_modules

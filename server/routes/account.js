@@ -70,7 +70,8 @@ router.route('/profile')
                 message: 'Successful.'
             });
         });
-    }).post(checkJwt, (req, res, next) => {
+    })
+    .post(checkJwt, (req, res, next) => {
         User.findOne({ _id: req.decoded.user._id }, (err, user) => {
             if (err) next(err);
 
@@ -87,7 +88,8 @@ router.route('/profile')
             });
         });
     });
-    router.route('/address')
+
+router.route('/address')
     .get(checkJwt, (req, res, next) => {
         User.findOne({ _id: req.decoded.user._id }, (err, user) => {
             res.json({
@@ -96,7 +98,8 @@ router.route('/profile')
                 message: 'Successful.'
             });
         });
-    }).post(checkJwt, (req, res, next) => {
+    })
+    .post(checkJwt, (req, res, next) => {
         User.findOne({ _id: req.decoded.user._id }, (err, user) => {
             if (err) next(err);
 
