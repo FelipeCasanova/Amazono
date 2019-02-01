@@ -2,6 +2,8 @@ const router = require('express').Router();
 const checkJwt = require('../middlewares/check-jwt');
 const Product = require('../models/product');
 const faker = require('faker');
+const multer = require('multer');
+var upload = multer();
 
 router.route('/products')
     .get(checkJwt, (req, res, next) => {
@@ -25,13 +27,13 @@ router.route('/products')
                 }
             });
     })
-    .post(checkJwt, (req, res, next) => {
-        let product = new product();
+    .post([checkJwt, upload.single('product_picture')], (req, res, next) => {
+        let product = new Product();
         product.owner = req.decoded.user._id;
-        if(req.body.categoryId) product.category = req.body.categoryId;
-        if(req.body.title) product.title = req.body.title;
-        if(req.body.description) product.description = req.body.description;
-        if(req.body.price) product.price = req.body.price;
+        product.category = req.body.categoryId;
+        product.title = req.body.title;
+        product.description = req.body.description;
+        product.price = req.body.price;
         
         product.save();
 

@@ -5,7 +5,7 @@ router.route('/categories')
     .get((req, res, next) => {
         Category.find({}, (err, categories) => {
             res.json({
-                succsess: true,
+                success: true,
                 message: 'Success.',
                 categories: categories
             });
@@ -16,7 +16,7 @@ router.route('/categories')
         category.name = req.body.name;
         category.save();
         res.json({
-            succsess: true,
+            success: true,
             message: 'Successful.'
         });
     });
